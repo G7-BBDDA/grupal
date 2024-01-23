@@ -1,0 +1,24 @@
+{
+   "mappings":{
+      "properties":{
+         "direccion":{
+            "type":"search_as_you_type"
+         },
+         "margen":{
+            "type":"integer"
+         },
+         "longitud":{
+            "type":"double"
+         },
+         "latitud":{
+            "type":"double"
+         },
+         "horario":{
+            "type":"text"
+         },
+         "tipo":{
+            "type":"keyword"
+         }
+      }
+   }
+}
