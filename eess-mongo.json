@@ -1,0 +1,43 @@
+{
+  "_id": ObjectId(),
+  "ID_Estacion": int,
+  "Provincia": string,
+  "Localidad": string,
+  "Direccion": string,
+  "CodigoPostal": string,
+  "Margen": string,
+  "Longitud": float,
+  "Latitud": float,
+  "Rotulo": string,
+  "TipoVenta": string,
+  "Rem": string,
+  "Horario": string,
+  "Tipo_Servicio": string,
+  "Fecha": ISODate,
+  "PreciosGasolina": [
+    {
+      "95_E5": decimal,
+      "95_E10": decimal,
+      "95_E5_Premium": decimal,
+      "98_E5": decimal,
+      "98_E10": decimal,
+      // más campos según sea necesario
+    }
+  ],
+  "PreciosGasoleo": [
+    {
+      "Gasoleo_A": decimal,
+      "Gasoleo_Premium": decimal,
+      "Gasoleo_B": decimal,
+      "Gasoleo_C": decimal,
+      // más campos según sea necesario
+    }
+  ],
+  "PreciosOtrosCombustibles": [
+    {
+      "Bioetanol": decimal,
+      "Biodiesel": decimal,
+      // más campos según sea necesario
+    }
+  ]
+}
