@@ -1,11 +1,8 @@
 package com.unir.eess.model.db;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Set;
 
@@ -19,13 +16,15 @@ public class Estacion {
 
 	@Id
 	@Column(name = "estacion_ID")
-	private Integer estacion_ID;
+	private Integer estacionID;
 
-	@Column(name = "rotulo_ID")
-	private Integer rotulo_ID;
+	@ManyToOne
+	@JoinColumn(name = "rotulo_ID")
+	private Rotulo rotulo;
 
-	@Column(name = "cp_ID", length = 5)
-	private String cp_ID;
+	@ManyToOne
+	@JoinColumn(name = "cp_ID")
+	private CodigoPostal codigoPostal;
 
 	@Column(name = "direccion", length = 150)
 	private String direccion;
@@ -46,13 +45,9 @@ public class Estacion {
 	@Column(columnDefinition = "ENUM('M', 'T')")
 	private Tipo tipo;
 
-//	@JsonIgnore
-//	@OneToMany(mappedBy = "employee")
-//	private Set<DeptEmp> deptEmps;
-//
-//	@JsonIgnore
-//	@OneToMany(mappedBy = "employee")
-//	private Set<DeptManager> deptManagers;
+	@JsonIgnore
+	@OneToMany(mappedBy = "estacion")
+	private Set<Precio> precios;
 }
 
 enum Tipo {
