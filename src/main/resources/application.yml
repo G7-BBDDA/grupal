@@ -16,3 +16,25 @@ spring:
 ## Configuracion de Instancia 
 server:
   port: 8088
+
+## Configuracion de Elasticsearch
+elasticsearch:
+  host: ${ELASTICSEARCH_HOST:g7-bbdda-3996498811.eu-west-1.bonsaisearch.net}
+  credentials:
+    username: ${ELASTICSEARCH_USERNAME:b2kmmqoh4l}
+    password: ${ELASTICSEARCH_PASSWORD:1vvnt2zmot}
+  logging:
+    level:
+      tracer: TRACE
+
+
+
+
+
+
+
+
+
+
+
+
