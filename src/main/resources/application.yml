@@ -23,18 +23,6 @@ elasticsearch:
   credentials:
     username: ${ELASTICSEARCH_USERNAME:b2kmmqoh4l}
     password: ${ELASTICSEARCH_PASSWORD:1vvnt2zmot}
-  logging:
-    level:
-      tracer: TRACE
-
-
-
-
-
-
-
-
-
-
-
-
+logging:
+  level:
+    tracer: TRACE
