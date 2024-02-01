@@ -26,4 +26,14 @@ public class ElasticsearchRepository {
     public List<ElasticEstacion> searchByDireccion(String direccion) {
         return estacionRepository.findByDireccion(direccion);
     }
+    public ElasticEstacion volcarEstacion(ElasticEstacion estacion) {
+        return estacionRepository.save(estacion);
+    }
+    public List<ElasticEstacion> findAll() {
+        return estacionRepository.findAll();
+    }
+
+    public ElasticEstacion save(ElasticEstacion elasticEstacion) {
+        return estacionRepository.save(elasticEstacion);
+    }
 }

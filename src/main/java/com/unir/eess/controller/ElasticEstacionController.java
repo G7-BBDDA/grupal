@@ -1,7 +1,9 @@
 package com.unir.eess.controller;
 
 import com.unir.eess.data.ElasticEstacionRepository;
+import com.unir.eess.data.EstacionRepository;
 import com.unir.eess.model.db.ElasticEstacion;
+import com.unir.eess.model.db.Estacion;
 import com.unir.eess.service.ElasticEstacionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +17,9 @@ import java.util.List;
 public class ElasticEstacionController {
 
     private final ElasticEstacionService elasticEstacionService;
+    private final EstacionRepository estacionRepository;
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<ElasticEstacion> getEstacionByEstacionID(@PathVariable("id") String id) {
         ElasticEstacion estacion = elasticEstacionService.getEstacionById(id);
 
@@ -26,6 +29,7 @@ public class ElasticEstacionController {
             return ResponseEntity.notFound().build();
         }
     }
+
     @GetMapping("/{estacionID}")
     public ResponseEntity<ElasticEstacion> getEstacionByEstacionID(@PathVariable("estacionID") Integer estacionID) {
         ElasticEstacion estacion = elasticEstacionService.getEstacionByEstacionID(estacionID);
@@ -57,6 +61,18 @@ public class ElasticEstacionController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/bulk")
+    public ResponseEntity<List<ElasticEstacion>> bulk() {
+        List<ElasticEstacion> estacion;
+        List<Estacion> estacionMysql = estacionRepository.findAll();
+
+        for (Estacion e : estacionMysql) {
+            elasticEstacionService.volcarEstacion(e);
+        }
+        estacion = elasticEstacionService.findAll();
+        return ResponseEntity.ok(estacion);
     }
 /*
     @PostMapping("/save")

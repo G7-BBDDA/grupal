@@ -1,9 +1,7 @@
 package com.unir.eess.data;
 
 import com.unir.eess.model.db.ElasticEstacion;
-import com.unir.eess.model.db.Estacion;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,4 +11,9 @@ public interface ElasticEstacionRepository extends ElasticsearchRepository<Elast
 	ElasticEstacion findById(String id);
 	ElasticEstacion findByEstacionID(Integer estacionID);
 	List<ElasticEstacion> findByDireccion(String direccion);
+	//ElasticEstacion volcarEstacion(ElasticEstacion estacion);
+
+	List<ElasticEstacion> findAll();
+
+	ElasticEstacion save(ElasticEstacion elasticEstacion);
 }

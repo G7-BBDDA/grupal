@@ -25,13 +25,22 @@ public class ElasticEstacion {
 	private Integer estacionID;
 
 	@Field(type = FieldType.Text, name = "rotulo")
-	private Rotulo rotulo;
+	private String rotulo;
 
 	@Field(type = FieldType.Text, name = "codigoPostal")
-	private CodigoPostal codigoPostal;
+	private String codigoPostal;
 
 	@Field(type = FieldType.Search_As_You_Type, name = "direccion")
 	private String direccion;
+
+	@Field(type = FieldType.Search_As_You_Type, name = "localidad")
+	private String localidad;
+
+	@Field(type = FieldType.Search_As_You_Type, name = "municipio")
+	private String municipio;
+
+	@Field(type = FieldType.Search_As_You_Type, name = "provincia")
+	private String provincia;
 
 	@Field(type = FieldType.Keyword, name = "margen")
 	private Character margen;
@@ -46,7 +55,7 @@ public class ElasticEstacion {
 	private String horario;
 
 	@Field(type = FieldType.Keyword, name = "tipo")
-	private ElasticTipo tipo;
+	private Tipo tipo;
 
 }
 
